@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
 
@@ -44,7 +45,7 @@ const Sidebar = () => {
               </p>
               <div className="pr-4 ">
                 <GoogleLogin
-                  clientId=""
+                  clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
                   render={(renderProps) => (
                     <button
                       onClick={renderProps.onClick}
