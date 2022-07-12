@@ -10,6 +10,7 @@ import { IoMdAdd } from "react-icons/io";
 import logo from "../utils/tiktik-logo.png";
 import { createOrGetUser } from "../utils";
 import useAuthStore from "../store/authStore";
+import GoogleAuth from "./GoogleAuth";
 
 const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
@@ -62,10 +63,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <GoogleLogin
-            onSuccess={(response) => createOrGetUser(response, addUser)}
-            onError={() => console.log("error")}
-          />
+          <GoogleAuth />
         )}
       </div>
     </div>
