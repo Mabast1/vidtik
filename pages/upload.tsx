@@ -9,6 +9,7 @@ import useAuthStore from "../store/authStore";
 import { client } from "../utils/client";
 import { topics } from "../utils/constants";
 import GoogleAuth from "../components/GoogleAuth";
+import { BASE_URL } from "../utils";
 
 const upload = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +66,7 @@ const upload = () => {
         category,
       };
 
-      await axios.post(`http://localhost:3000/api/post`, doc);
+      await axios.post(`${BASE_URL}/api/post`, doc);
 
       router.push("/");
     }
