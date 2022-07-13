@@ -44,7 +44,7 @@ const Detail = ({ postDetails }: IProps) => {
 
   return (
     <div className="flex w-full absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
-      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-gray-300">
+      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-gray-700">
         <div className="absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
           <p className="cursor-pointer" onClick={() => router.back()}>
             <MdOutlineCancel className="text-white text-[35px]" />
@@ -59,26 +59,28 @@ const Detail = ({ postDetails }: IProps) => {
               className="h-full cursor-pointer"
             ></video>
           </div>
-          <div className="absolute top-[45%] left-[45%] cursor-pointer">
+          <div className="absolute top-[46%] left-[48%] cursor-pointer">
             {!playing && (
               <div>
                 <button type="button" onClick={onVideoClick} className="">
-                  <BsFillPlayFill className="text-white shadow-md text-6xl lg:text-8xl" />
+                  <BsFillPlayFill className="text-white text-6xl lg:text-8xl" />
                 </button>
               </div>
             )}
           </div>
         </div>
-        <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-10 cursor-pointer">
-          {isVideoMuted ? (
-            <button onClick={() => setIsVideoMuted(false)}>
-              <HiVolumeOff className="text-white text-3xl lg:text-4xl" />
-            </button>
-          ) : (
-            <button onClick={() => setIsVideoMuted(true)}>
-              <HiVolumeUp className="text-white text-3xl lg:text-4xl" />
-            </button>
-          )}
+        <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-10 cursor-pointer ">
+          <div className="bg-[#ffffff1f] px-2 pt-2 pb-1 rounded-full">
+            {isVideoMuted ? (
+              <button onClick={() => setIsVideoMuted(false)}>
+                <HiVolumeOff className="text-white text-3xl lg:text-3xl" />
+              </button>
+            ) : (
+              <button onClick={() => setIsVideoMuted(true)}>
+                <HiVolumeUp className="text-white text-3xl lg:text-3xl" />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
