@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import { GoVerified } from "react-icons/go";
-import { MdOutlineCancel } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
 import { BsFillPlayFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import axios from "axios";
@@ -63,8 +63,11 @@ const Detail = ({ postDetails }: IProps) => {
     <div className="flex w-full absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
       <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-gray-700">
         <div className="absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
-          <p className="cursor-pointer" onClick={() => router.back()}>
-            <MdOutlineCancel className="text-white text-[35px]" />
+          <p
+            className="cursor-pointer bg-[#ffffff1f] p-2 rounded-full"
+            onClick={() => router.back()}
+          >
+            <IoMdClose className="text-white text-[35px]" />
           </p>
         </div>
         <div className="relative">
@@ -101,9 +104,9 @@ const Detail = ({ postDetails }: IProps) => {
         </div>
       </div>
       <div className="relative w-[1000px] md:w-[900px] lg:w-[600px]">
-        <div className="lg:mt-20 mt-10">
+        <div className="lg:mt-10 mt-5">
           <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
-            <div className="ml-4 md:w-20 md:h-20 w-16 h-16">
+            <div className="ml-4 md:w-14 md:h-14 w-12 h-12">
               <Link href="/">
                 <>
                   <Image
@@ -119,20 +122,20 @@ const Detail = ({ postDetails }: IProps) => {
             </div>
             <div>
               <Link href="/">
-                <div className="flex flex-col gap-2 mt-3">
+                <div className="flex flex-col mt-3">
                   <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                     {post.postedBy.userName}{" "}
                     <GoVerified className="text-blue-400 text-md" />
                   </p>
                   <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
-                    {post.postedBy.userName}
+                    @{post.postedBy.userName}
                   </p>
                 </div>
               </Link>
             </div>
           </div>
-          <p className="px-10 text-md text-gray-600">{post.caption}</p>
-          <div className="mt-10 px-10">
+          <p className="px-7 text-md text-gray-600">{post.caption}</p>
+          <div className="mt-2 px-7">
             {userProfile && (
               <LikeButton
                 likes={post.likes}

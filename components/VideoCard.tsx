@@ -36,10 +36,10 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
   }, [isVideoMuted]);
 
   return (
-    <div className="flex flex-col border-b-2 border-gray-200 pb-6">
+    <div className="flex flex-col border-b-2 border-gray-200 pb-6 pt-6">
       <div>
         <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
-          <div className="md:w-16 md:h-16 w-10 h-10">
+          <div className="ml-4 md:w-14 md:h-14 w-12 h-12">
             <Link href="/">
               <>
                 <Image
@@ -55,13 +55,13 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           </div>
           <div>
             <Link href="/">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col  mt-3">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}{" "}
                   <GoVerified className="text-blue-400 text-md" />
                 </p>
                 <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
-                  {post.postedBy.userName}
+                  @{post.postedBy.userName}
                 </p>
               </div>
             </Link>
