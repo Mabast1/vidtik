@@ -63,7 +63,7 @@ const upload = () => {
           _type: "postedBy",
           _ref: userProfile?._id,
         },
-        category,
+        topic: category,
       };
 
       await axios.post(`${BASE_URL}/api/post`, doc);

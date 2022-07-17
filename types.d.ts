@@ -1,4 +1,5 @@
 export interface Video {
+  topic: ReactNode;
   caption: string;
   video: {
     asset: {
