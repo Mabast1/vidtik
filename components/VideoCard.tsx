@@ -3,8 +3,11 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
-import { BsPlay, BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
-import { GoVerified } from "react-icons/go";
+import {
+  BsFillPlayFill,
+  BsFillPauseFill,
+  BsCheckCircleFill,
+} from "react-icons/bs";
 
 import { Video } from "../types";
 
@@ -55,10 +58,10 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           </div>
           <div>
             <Link href="/">
-              <div className="flex flex-col  mt-3">
+              <div className="flex flex-col mt-3">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary lowercase">
-                  {post.postedBy.userName.replaceAll(" ", "")}{" "}
-                  <GoVerified className="text-blue-400 text-md" />
+                  {post.postedBy.userName.replaceAll(" ", "")}
+                  <BsCheckCircleFill className="text-blue-400 text-md" />
                 </p>
                 <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
                   {post.postedBy.userName}
@@ -74,6 +77,8 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
         >
+          <p className="px-3 pb-4 text-gray-600">{post.caption}</p>
+          {/* <p>{post.topic}</p> */}
           <Link href={`/detail/${post._id}`}>
             <video
               src={post.video.asset.url}

@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
-import { GoVerified } from "react-icons/go";
 import { IoMdClose } from "react-icons/io";
-import { BsFillPlayFill } from "react-icons/bs";
+import { BsCheckCircleFill, BsFillPlayFill } from "react-icons/bs";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import axios from "axios";
 
@@ -144,7 +143,7 @@ const Detail = ({ postDetails }: IProps) => {
                 <div className="flex flex-col mt-3">
                   <p className="flex gap-2 items-center md:text-md font-bold text-primary lowercase">
                     {post.postedBy.userName.replaceAll(" ", "")}{" "}
-                    <GoVerified className="text-blue-400 text-md" />
+                    <BsCheckCircleFill className="text-blue-400 text-md" />
                   </p>
                   <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
                     {post.postedBy.userName}

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { GoVerified } from "react-icons/go";
+import { BsCheckCircleFill } from "react-icons/bs";
 
 import useAuthStore from "../store/authStore";
 import { IUser } from "../types";
@@ -35,7 +35,7 @@ const SuggestedAccounts = () => {
               <div className="hidden xl:block ">
                 <p className="flex gap-1 items-center text-md font-bold text-primary lowercase">
                   {user.userName.replaceAll(" ", "")}
-                  <GoVerified className="text-blue-400" />
+                  <BsCheckCircleFill className="text-blue-400" />
                 </p>
                 <p className="capitalize text-gray-400 text-xs">
                   {user.userName}
