@@ -6,6 +6,7 @@ import { GoVerified } from "react-icons/go";
 import useAuthStore from "../store/authStore";
 import NoResults from "./NoResults";
 import { IUser } from "../types";
+import GoogleAuth from "./GoogleAuth";
 
 interface IProps {
   isPostingComment: Boolean;
@@ -73,8 +74,8 @@ const Comments = ({
           <NoResults text="No comments yet, Be the first to say something..." />
         )}
       </div>
-      {userProfile && (
-        <div className="absolute bottom-0 left-0 pb-6 px-2 md:px-10">
+      {userProfile ? (
+        <div className="absolute bottom-0 left-0 pb-10 px-2 md:px-10">
           <form onSubmit={addComment} className="flex gap-4">
             <input
               value={comment}
@@ -86,6 +87,13 @@ const Comments = ({
               {isPostingComment ? "Commenting..." : "Comment"}
             </button>
           </form>
+        </div>
+      ) : (
+        <div className="xl:flex hidden xl:flex-col xl:justify-center xl:items-center absolute bottom-10 left-auto pb-6 px-2 md:px-10">
+          <p className="text-lg text-red-400 mb-4">
+            You must be logged in to like or leave a comment!
+          </p>
+          <GoogleAuth />
         </div>
       )}
     </div>

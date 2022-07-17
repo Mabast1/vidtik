@@ -16,55 +16,57 @@ const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
 
   return (
-    <div className="w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4">
-      <Link href="/">
-        <div className="w-[100px] md:w-[130px]">
-          <Image
-            src={logo}
-            className=" cursor-pointer"
-            alt="logo"
-            layout="responsive"
-          />
-        </div>
-      </Link>
-      <div>Search</div>
-      <div>
-        {userProfile ? (
-          <div className="flex gap-5 md:gap-10">
-            <Link href="/upload">
-              <button className="border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2">
-                <IoMdAdd className="text-xl" />{" "}
-                <span className="hidden md:block">Upload</span>
-              </button>
-            </Link>
-            {userProfile.image && (
-              <Link href="/">
-                <>
-                  <Image
-                    src={userProfile.image}
-                    width={40}
-                    height={40}
-                    className="rounded-full cursor-pointer"
-                    alt="profile photo"
-                  />
-                </>
-              </Link>
-            )}
-            <button type="button" className="">
-              <AiOutlineLogout
-                color="red"
-                fontSize={21}
-                className=""
-                onClick={() => {
-                  googleLogout();
-                  removeUser();
-                }}
-              />
-            </button>
+    <div className="border-b border-gray-200 h-[6vh]">
+      <div className="w-full flex justify-between items-center py-2 px-4 xl:w-[1200px] m-auto">
+        <Link href="/">
+          <div className="w-[100px] md:w-[130px]">
+            <Image
+              src={logo}
+              className=" cursor-pointer"
+              alt="logo"
+              layout="responsive"
+            />
           </div>
-        ) : (
-          <GoogleAuth />
-        )}
+        </Link>
+        <div>Search</div>
+        <div>
+          {userProfile ? (
+            <div className="flex gap-5 md:gap-10">
+              <Link href="/upload">
+                <button className="border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2">
+                  <IoMdAdd className="text-xl" />{" "}
+                  <span className="hidden md:block">Upload</span>
+                </button>
+              </Link>
+              {userProfile.image && (
+                <Link href="/">
+                  <>
+                    <Image
+                      src={userProfile.image}
+                      width={40}
+                      height={40}
+                      className="rounded-full cursor-pointer"
+                      alt="profile photo"
+                    />
+                  </>
+                </Link>
+              )}
+              <button type="button" className="">
+                <AiOutlineLogout
+                  color="red"
+                  fontSize={21}
+                  className=""
+                  onClick={() => {
+                    googleLogout();
+                    removeUser();
+                  }}
+                />
+              </button>
+            </div>
+          ) : (
+            <GoogleAuth />
+          )}
+        </div>
       </div>
     </div>
   );
