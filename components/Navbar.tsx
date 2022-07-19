@@ -7,10 +7,9 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
 import { BsGear } from "react-icons/bs";
-import ReactTooltip from "react-tooltip";
 
-import logo from "../utils/tiktik-logo.png";
 import { createOrGetUser } from "../utils";
+import logo from "../utils/tiktik-logo.png";
 import useAuthStore from "../store/authStore";
 import GoogleAuth from "./GoogleAuth";
 
