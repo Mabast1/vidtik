@@ -43,7 +43,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
       <div>
         <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
           <div className="ml-4 md:w-14 md:h-14 w-12 h-12">
-            <Link href="/">
+            <Link href={`/profile/${post.postedBy._id}`}>
               <>
                 <Image
                   src={post.postedBy.image}
@@ -57,7 +57,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
             </Link>
           </div>
           <div>
-            <Link href="/">
+            <Link href={`/profile/${post.postedBy._id}`}>
               <div className="flex flex-col mt-3">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary lowercase">
                   {post.postedBy.userName.replaceAll(" ", "")}
