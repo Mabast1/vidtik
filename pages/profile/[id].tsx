@@ -46,18 +46,22 @@ const profile = ({ data }: IProps) => {
       </div>
       <div className="">
         <div className="flex gap-10 mb-10 mt-10 border-b border-gray-200 bg-white">
-          <p
-            className={`text-xl font-semibold cursor-pointer mt-2 ${videos}`}
-            onClick={() => setShowUserVideos(true)}
-          >
-            Videos
-          </p>
-          <p
-            className={`text-xl font-semibold cursor-pointer mt-2 ${liked}`}
-            onClick={() => setShowUserVideos(false)}
-          >
-            Liked
-          </p>
+          <div className={`w-1/4 flex justify-center ${videos}`}>
+            <p
+              className="text-xl font-semibold cursor-pointer mt-2"
+              onClick={() => setShowUserVideos(true)}
+            >
+              Videos
+            </p>
+          </div>
+          <div className={`w-1/4 flex justify-center ${liked}`}>
+            <p
+              className="text-xl font-semibold cursor-pointer mt-2"
+              onClick={() => setShowUserVideos(false)}
+            >
+              Liked
+            </p>
+          </div>
         </div>
       </div>
     </div>
