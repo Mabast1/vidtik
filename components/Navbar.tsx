@@ -17,6 +17,8 @@ const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
   const [profileDropdown, setProfileDropdown] = useState(false);
 
+  const handleSearch = () => {};
+
   return (
     <div className="border-b border-gray-200 h-[7vh] flex">
       <div className="w-full flex justify-between items-center py-2 px-4 xl:w-[1200px] m-auto">
@@ -30,7 +32,29 @@ const Navbar = () => {
             />
           </div>
         </Link>
-        <div>Search</div>
+
+        <div className="relative hidden md:block ">
+          <form
+            onSubmit={handleSearch}
+            className="absolute md:static top-10 -left-20 bg-white"
+          >
+            <input
+              type="text"
+              value=""
+              placeholder="Search accounts"
+              onChange={() => {}}
+              className="bg-primary p-2 md:text-md font-small border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-200 w-[300px] md:w-[350px] rounded-full md:top-0 pl-5"
+            />
+            <button
+              type="button"
+              onClick={handleSearch}
+              className="absolute md:right-5 right-6 top-[10px] border-l-2 border-gray-300 pl-4 text-2xl text-gray-400"
+            >
+              <BiSearch />
+            </button>
+          </form>
+        </div>
+
         <div>
           {userProfile ? (
             <div className="flex gap-5 md:gap-10">
