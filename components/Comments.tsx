@@ -71,7 +71,10 @@ const Comments = ({
             </>
           ))
         ) : (
-          <NoResults text="No comments yet, Be the first to say something..." />
+          <NoResults
+            text="No comments yet, Be the first to say something..."
+            commentIcon
+          />
         )}
       </div>
       {userProfile ? (
