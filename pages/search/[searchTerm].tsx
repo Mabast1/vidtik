@@ -13,6 +13,8 @@ import useAuthStore from "../../store/authStore";
 
 const Search = ({ videos }: { videos: Video[] }) => {
   const [isAccounts, setIsAccounts] = useState(false);
+  const router = useRouter();
+  const { searchTerm } = router.query;
 
   const accounts = isAccounts ? "border-b-2 border-black" : "text-gray-400";
   const isVideos = !isAccounts ? "border-b-2 border-black" : "text-gray-400";
@@ -37,7 +39,19 @@ const Search = ({ videos }: { videos: Video[] }) => {
           </p>
         </div>
       </div>
-      {isAccounts ? <div>Accounts</div> : <div>Videos</div>}
+      {isAccounts ? (
+        <div>Accounts</div>
+      ) : (
+        <div className="md:mt-16 flex flex-wrap gap-6 md:justify-start">
+          {videos.length ? (
+            videos.map((video: Video, idx) => (
+              <VideoCard post={video} key={idx} />
+            ))
+          ) : (
+            <NoResults text={`No results for ${searchTerm}`} />
+          )}
+        </div>
+      )}
     </div>
   );
 };
