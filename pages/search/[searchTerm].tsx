@@ -11,7 +11,7 @@ import { IUser, Video } from "../../types";
 import { BASE_URL } from "../../utils";
 import useAuthStore from "../../store/authStore";
 
-const Search = () => {
+const Search = ({ videos }: { videos: Video[] }) => {
   return (
     <div className="">
       <div></div>
@@ -27,7 +27,7 @@ export const getServerSideProps = async ({
   const res = await axios.get(`${BASE_URL}/api/search/${searchTerm}`);
 
   return {
-    props: { data: res.data },
+    props: { videos: res.data },
   };
 };
 
