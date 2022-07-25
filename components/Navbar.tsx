@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -16,8 +16,16 @@ import GoogleAuth from "./GoogleAuth";
 const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
   const [profileDropdown, setProfileDropdown] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const router = useRouter();
 
-  const handleSearch = () => {};
+  const handleSearch = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    if (searchValue) {
+      router.push(`/search/${searchValue}`);
+    }
+  };
 
   return (
     <div className="border-b border-gray-200 h-[7vh] flex">
@@ -32,7 +40,7 @@ const Navbar = () => {
             />
           </div>
         </Link>
-
+        {/* Search */}
         <div className="relative hidden md:block ">
           <form
             onSubmit={handleSearch}
@@ -40,9 +48,9 @@ const Navbar = () => {
           >
             <input
               type="text"
-              value=""
+              value={searchValue}
               placeholder="Search accounts"
-              onChange={() => {}}
+              onChange={(e) => setSearchValue(e.target.value)}
               className="bg-primary p-2 md:text-md font-small border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-200 w-[300px] md:w-[350px] rounded-full md:top-0 pl-5"
             />
             <button
@@ -54,7 +62,7 @@ const Navbar = () => {
             </button>
           </form>
         </div>
-
+        {/* End of search*/}
         <div>
           {userProfile ? (
             <div className="flex gap-5 md:gap-10">
