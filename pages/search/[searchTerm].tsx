@@ -19,26 +19,25 @@ const Search = ({ videos }: { videos: Video[] }) => {
 
   return (
     <div className="w-full">
-      <div className="">
-        <div className="flex gap-10 mb-10 mt-10 border-b border-gray-200 bg-white">
-          <div className={`w-1/4 flex justify-center ${accounts}`}>
-            <p
-              className="text-xl font-semibold cursor-pointer mt-2"
-              onClick={() => setIsAccounts(true)}
-            >
-              Accounts
-            </p>
-          </div>
-          <div className={`w-1/4 flex justify-center ${videos}`}>
-            <p
-              className="text-xl font-semibold cursor-pointer mt-2"
-              onClick={() => setIsAccounts(false)}
-            >
-              Videos
-            </p>
-          </div>
+      <div className="flex gap-10 mb-10 mt-10 border-b border-gray-200 bg-white">
+        <div className={`w-1/4 flex justify-center ${accounts}`}>
+          <p
+            className="text-xl font-semibold cursor-pointer mt-2"
+            onClick={() => setIsAccounts(true)}
+          >
+            Accounts
+          </p>
+        </div>
+        <div className={`w-1/4 flex justify-center ${isVideos}`}>
+          <p
+            className="text-xl font-semibold cursor-pointer mt-2"
+            onClick={() => setIsAccounts(false)}
+          >
+            Videos
+          </p>
         </div>
       </div>
+      {isAccounts ? <div>Accounts</div> : <div>Videos</div>}
     </div>
   );
 };
