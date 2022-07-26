@@ -11,11 +11,12 @@ import { BsGear } from "react-icons/bs";
 import { createOrGetUser } from "../utils";
 import logo from "../utils/tiktik-logo.png";
 import useAuthStore from "../store/authStore";
+import { IUser } from "../types";
 import GoogleAuth from "./GoogleAuth";
 
 const Navbar = () => {
   const { userProfile, addUser, removeUser } = useAuthStore();
-  const [profileDropdown, setProfileDropdown] = useState(false);
+  const [profileDropdown, setProfileDropdown] = useState<IUser | null>();
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
 
