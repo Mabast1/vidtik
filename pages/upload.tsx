@@ -11,7 +11,7 @@ import { topics } from "../utils/constants";
 import GoogleAuth from "../components/GoogleAuth";
 import { BASE_URL } from "../utils";
 
-const upload = () => {
+const Upload = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [videoAsset, setVideoAsset] = useState<
     SanityAssetDocument | undefined
@@ -191,4 +191,4 @@ const upload = () => {
   );
 };
 
-export default upload;
+export default Upload;

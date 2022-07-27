@@ -16,7 +16,7 @@ interface IProps {
   };
 }
 
-const profile = ({ data }: IProps) => {
+const Profile = ({ data }: IProps) => {
   const { user, userVideos, userLikedVideos } = data;
   const [showUserVideos, setShowUserVideos] = useState(true);
   const [videosList, setVideosList] = useState<Video[]>([]);
@@ -101,4 +101,4 @@ export const getServerSideProps = async ({
   };
 };
 
-export default profile;
+export default Profile;
