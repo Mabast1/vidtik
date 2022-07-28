@@ -9,7 +9,7 @@ import { IoMdAdd } from "react-icons/io";
 import { BsGear } from "react-icons/bs";
 
 import { createOrGetUser } from "../utils";
-import logo from "../utils/tiktik-logo.png";
+import logo from "../utils/vidtok-logo.png";
 import useAuthStore from "../store/authStore";
 import { IUser } from "../types";
 import GoogleAuth from "./GoogleAuth";
@@ -87,8 +87,8 @@ const Navbar = () => {
                 </div>
               )}
               {profileDropdown && (
-                <div className="flex flex-col absolute bg-white drop-shadow-lg w-48 top-16 right-32 items-start justify-center p-2 rounded-md font-semibold z-10">
-                  <Link href="/">
+                <div className="flex flex-col absolute bg-white drop-shadow-lg w-48 top-16 right-auto items-start justify-center p-2 rounded-md font-semibold z-10">
+                  <Link href={`/profile/${userProfile?._id}`}>
                     <div className="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-100 w-full">
                       <BiUser className="text-xl" />
                       <p className="">View Profile</p>
