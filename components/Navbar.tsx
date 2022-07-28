@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -20,16 +20,37 @@ const Navbar = () => {
   const [searchValue, setSearchValue] = useState("");
   const router = useRouter();
 
+  const wrapperRef = useRef(null);
+
   const handleSearch = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     if (searchValue) {
       router.push(`/search/${searchValue}`);
+    } else {
+      router.push(`/`);
     }
   };
 
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(e) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+        setProfileDropdown(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
+
   return (
-    <div className="border-b border-gray-200 h-[7vh] flex">
+    <div className="border-b border-gray-200 h-[7vh] flex" ref={wrapperRef}>
       <div className="w-full flex justify-between items-center py-2 px-4 xl:w-[1200px] m-auto">
         <Link href="/">
           <div className="w-[100px] md:w-[130px]">
@@ -87,7 +108,10 @@ const Navbar = () => {
                 </div>
               )}
               {profileDropdown && (
-                <div className="flex flex-col absolute bg-white drop-shadow-lg w-48 top-16 right-auto items-start justify-center p-2 rounded-md font-semibold z-10">
+                <div
+                  className="flex flex-col absolute bg-white drop-shadow-lg w-48 top-16 right-auto items-start justify-center p-2 rounded-md font-semibold z-10"
+                  onClick={() => setProfileDropdown(false)}
+                >
                   <Link href={`/profile/${userProfile?._id}`}>
                     <div className="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-100 w-full">
                       <BiUser className="text-xl" />
