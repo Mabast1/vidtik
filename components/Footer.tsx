@@ -21,7 +21,12 @@ const Footer = () => {
       <List items={footerList1} mt={false} />
       <List items={footerList2} mt />
       <List items={footerList3} mt />
-      <p className="text-gray-400 text-sm mt-5">2022 VidTok</p>
+      <p className="text-gray-400 text-sm mt-5">
+        2022 VidTok | built with ♥ by{" "}
+        <a href="https://mabastahmad.com" className="text-blue-500">
+          Mabast Ahmad
+        </a>
+      </p>
     </div>
   );
 };
